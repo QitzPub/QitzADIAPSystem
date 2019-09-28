@@ -50,9 +50,47 @@ ItunesConnectやGooglePlayConsoleで設定した課金アイテムのIDを入れ
 ↓<br>
 ![図](https://i.gyazo.com/679211d141e279aa0a2caec2590e030c.png "図")<br>
 
+### loadingScreen
+
+課金アイテム読み込み中や購入処理中にユーザーが他の画面ボタンをタップしないようにするためのスクリーンです。
+![図](https://i.gyazo.com/94b0bd7b8afb6e1d7b349cbe4657c561.png "図")<br>
+<br>
+![図](https://i.gyazo.com/172aebdb7f63a0e38136a5d4a0eef5ab.png "図")<br>
+<br>
+QitzAdIAPSystem/Prefab/LoadingScreen.prefab<br>
+が対象のプリファブになります。<br>
+こちらをシーンに配置後に先ほどのインスペクターに設定します。<br>
+<br>
+![図](https://i.gyazo.com/140de1db7388b2c19e00a9cc5abf07ad.png "図")<br>
 
 
+### AdIAPConfirmDialog
 
+![図](https://i.gyazo.com/07a98ae4e6c9b085e07347fe2662de1e.png "図")<br>
+<br>
+QitzAdIAPSystem/Prefab/AdIAPConfirmDialog.prefab<br>
+<br>
+　こちらのプリファブをIAPDisplayのインスペクターに設定します。<br>
+ <br>
+![図](https://i.gyazo.com/4535a6a711cd5f8660cafa8efbfff0c1.png "図")<br>
+
+### DialogParent
+
+AdIAPConfirmDialogをインスタンス化させたあとの親になるTransformを指定します。
+
+##ざっくり設定したところで使い方
+
+###ゲーム内通貨の取得
+
+```C#
+
+      var iapDataStore = AdIAPSaveDataFactory.Create();
+      var money = iapDataStore.Money;
+
+```
+こんな感じで通貨を取得できます。
+
+##他にも色々APIがあるのですが、また次回詳しく記載！
 
 
 
